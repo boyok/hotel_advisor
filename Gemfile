@@ -3,18 +3,29 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 gem 'execjs'
 gem 'bcrypt-ruby'
-gem 'rspec-rails', '2.13.1'
+
 #gem 'will_paginate'
 #gem 'bootstrap-will_paginate'
 #gem 'ajaxful_rating' #stars rating
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+group :development do
+	gem 'rspec-rails', '2.13.1'
+	gem 'guard-rspec', '2.5.0'
+	gem 'spork-rails', '4.0.0'
+  	gem 'guard-spork', '1.5.0'
+  	gem 'childprocess'
+end
+
 group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
 	gem 'factory_girl_rails'
+	gem 'minitest'
+	gem 'libnotify', '0.8.0'
 end
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
