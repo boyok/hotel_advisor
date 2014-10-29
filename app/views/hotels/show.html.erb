@@ -3,6 +3,12 @@
   	<aside class="span4">
    		<section>
    			<h1> <%= @hotel.title %> </h1>
+   			<h1> <%= @hotel.stars_rating %> </h1>
+   			<h1> <%= @hotel.breakfast_included %> </h1>
+   			<h1> <%= @hotel.room_description %> </h1>
+   			<h1> <%= image_tag @hotel.photo_url(:thumb).to_s  %> </h1>
+   			<h1> <%= @hotel.price_for_room %> </h1>
+   		
    		</section>
   	</aside>
 	<div class="span8">

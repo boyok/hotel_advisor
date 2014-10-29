@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :signed_in_user, only: [:index, :create]
+   before_action :current_hotel, only: [:show, :edit, :update, :destroy]
   def new
     @hotel = Hotel.new
   end
@@ -23,7 +23,32 @@ class HotelsController < ApplicationController
   	end
   end
 
+
+  def edit
+  end
+
+  def update
+    if @hotel.update(hotel_params)
+      flash[:success] = "Hotel updated!"
+      redirect_to @hotel
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @hotel.destroy
+    redirect_to hotels_url
+  end
+
+
+
   private
+
+
+    def current_hotel
+      @hotel = Hotel.find(params[:id])      
+    end
 
   	def hotel_params
   		params.require(:user).permit(:title, :stars_rating, :breakfast_included?, :room_description, :photo,

@@ -1,0 +1,22 @@
+
+	<% render 'shared/error_messages_hotel' %>
+	<%= f.label :title %>
+	<%= f.input  :title %>
+
+	<%= f.label :stars_rating %>
+	<%= f.input :stars_rating, collection: 1..5, as: :radio_buttons %>
+
+	<%= f.label :breakfast_included?%>
+	<%= f.input :breakfast_included? %>
+
+	<%= f.label :room_description %>
+	<%= f.input :room_description %>
+
+	<%= f.label :photo %>
+	<%= f.input :photo, as: :file, label: 'Add a photo of a hotel'%>
+
+	<%= f.label :price_for_room %>
+	<%= f.input :price_for_room, hint: "should be in $" %>
+	
+
+

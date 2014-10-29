@@ -1,7 +1,14 @@
 <% provide(:title, 'All Hotels') %>
+<%= will_paginate %>
+<ul class="users">
 
-<ul class="hotels">
 	<% @hotels.each do |hotel| %>
-	<li>`<%=link_to hotel.tatle. hotel %> </li>
+	<li> <%= link_to hotel.title, hotel %> </li>
+	<li> <%= hotel.stars_rating %> </li>
+	<li> <%= hotel.breakfast_included? %> </li>
+	<li> <%= hotel.room_description %> </li>
+	<li> <%= image_tag hotel.photo_url(:thumb).to_s %> </li>
+	<li> <%= hotel.price_for_room %> </li>
 	<% end %>
 <ul>
+<%= will_paginate %>
