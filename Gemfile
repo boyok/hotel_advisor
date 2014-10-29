@@ -9,11 +9,12 @@ gem 'bcrypt-ruby'
 gem 'faker', '1.1.2'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'carrierwave'
 #gem 'ajaxful_rating' #stars rating
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development  do
-	gem 'rspec-rails', '2.13.1'
+	gem 'rspec-rails', '2.14.0.rc1'
 	#gem 'rspec-its'
  	gem 'spork-rails', '4.0.0'
 	gem 'childprocess'

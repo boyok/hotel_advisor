@@ -1,0 +1,44 @@
+<% provide(:title, 'Add new hotel') %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @hotel do |f| %>
+      <%= render 'shared/error_messages_hotel' %>
+
+      <%= f.label "Title(required)"%>
+      <%= f.text_field :title %>
+
+      <%= f.label "Stars rating(required)" %>
+      <%= f.number_field :stars_rating %>
+    
+      <%= radio_button( "f", "breakfast_included?", "Yes") %>
+
+    
+      <%= f.label "Upload picture" %>
+      <%= f.text_field :photo %>
+      
+
+      <%= f.label "Room description" %>
+      <%= f.text_field :room_description %>
+
+      <%= f.label "Price for room per day, $"%>
+      <%= f.number_field :price_for_room %>
+
+      <%= f.label "Country" %>
+      <%= f.text_field :country %>
+
+      <%= f.label "State" %>
+      <%= f.text_field :state %>
+
+      <%= f.label "City" %>
+      <%= f.text_field :city %>
+
+      <%= f.label  "Street" %>
+      <%= f.text_field :street %>
+      
+      <%= f.label "Rating Hotel" %>
+      <%= f.number_field :rating_hotel %>
+      
+       <%= f.submit "Add new hotel in rating", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

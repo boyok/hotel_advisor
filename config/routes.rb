@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  get 'hotels/new'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :hotels, only: [:create, :show]
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/new_hotel', to: 'hotels#new',         via: 'get'
+  match '/index', to: 'hotels#index',           via: 'get'
 
 
 

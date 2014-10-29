@@ -58,6 +58,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.0.1)
@@ -118,17 +123,17 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
-    rspec-core (2.13.1)
-    rspec-expectations (2.13.0)
+    rspec-core (2.14.0.rc1)
+    rspec-expectations (2.14.0.rc1)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.13.1)
-    rspec-rails (2.13.1)
+    rspec-mocks (2.14.0.rc1)
+    rspec-rails (2.14.0.rc1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
+      rspec-core (= 2.14.0.rc1)
+      rspec-expectations (= 2.14.0.rc1)
+      rspec-mocks (= 2.14.0.rc1)
     rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -182,6 +187,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-will_paginate
   capybara (= 2.1.0)
+  carrierwave
   childprocess
   coffee-rails (~> 4.0.0)
   database_cleaner!
@@ -193,7 +199,7 @@ DEPENDENCIES
   libnotify (= 0.8.0)
   minitest
   rails (= 4.1.6)
-  rspec-rails (= 2.13.1)
+  rspec-rails (= 2.14.0.rc1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
