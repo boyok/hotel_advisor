@@ -37,4 +37,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   ActiveModel::SecurePassword.min_cost = true
+
+
+  #config.active_record.maintain_test_schema = false
 end

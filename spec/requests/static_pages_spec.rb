@@ -1,6 +1,5 @@
 require 'spec_helper'
-require 'capybara'
-require 'minitest/autorun'
+
 
 describe "Static pages" do
 
@@ -14,7 +13,7 @@ describe "Static pages" do
   it "should have the right links on the layout" do
     visit root_path
     click_link "Sign up now!"
-    expect(page).to have_title(full_title('Sign Up'))
+    expect(page).to have_title(full_title('Sign up'))
     click_link "logo"
     expect(page).to have_title(full_title(''))
   end
