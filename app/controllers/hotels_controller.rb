@@ -1,7 +1,14 @@
 class HotelsController < ApplicationController
-   before_action :current_hotel, only: [:show, :edit, :update, :destroy]
+  #before_action :correct_hotel, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :show, :create, :update, :edit, :count_comments]
+
   def new
     @hotel = Hotel.new
+    @address = @hotel.build_address
+  end
+
+  def count_comments
+    @count_comments = Hotel.joins(:comments).where(comments: {count: 5}.limit(5))
   end
 
   def index
@@ -14,15 +21,16 @@ class HotelsController < ApplicationController
 
   def create 
   	@hotel = Hotel.new(hotel_params)
+    @address = @hotel.build_address(address_params)
+   # 
   	#@hotel.user_id = current_user.user_id
-  	if @hotel.save
-     # hotel_path @hotel
-
+  	if @hotel.save #&& @address.save
       flash[:success] = "Hotel created!"
-      render 'show'
+      redirect_to @hotel
     else 
-      render 'new'
-  	end
+      new_hotel_path
+    end
+    #end
   end
 
 
@@ -48,12 +56,17 @@ class HotelsController < ApplicationController
   private
 
 
-    def current_hotel
-      @hotel = Hotel.find(params[:id])      
+    def correct_hotel
+      #@hotel = Hotel.find(params[:id])      
     end
 
   	def hotel_params
-  		params.require(:hotel).permit(:title, :stars_rating, :breakfast_included?, :room_description, :photo,
-  			:price_for_room, :country)#, #:state, :city, :street, :rating_hotel, :user_id)
+  		params.require(:hotel).permit(:title, :stars_rating, :breakfast_included, :room_description, :photo,
+  			:price_for_room, :rating_hotel) 
   	end
+
+    def address_params
+      params.require(:address).permit(:country, :city, :state, :street)
+    end
+
 end

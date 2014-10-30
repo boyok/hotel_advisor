@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
 			uniqueness: { case_sensitive: false }
 	validates :password, length: { minimum: 6 }
-  has_many :hotels
+  has_many :hotels, dependent: :destroy
+  has_many :rating_hotels, dependent: :destroy
+  has_many :comments, dependent: :destroy
 	has_secure_password
 
 	def User.new_remember_token

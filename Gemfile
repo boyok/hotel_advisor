@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form'
 gem 'country_select'
+
 #gem 'ajaxful_rating' #stars rating
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
