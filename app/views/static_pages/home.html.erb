@@ -4,7 +4,9 @@
 	<h2>
 		This page is start page my app.	
 	</h2>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	<% unless signed_in? %>
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	<% end %>
 </div>
 
 

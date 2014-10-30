@@ -14,10 +14,12 @@ class HotelsController < ApplicationController
 
   def create 
   	@hotel = Hotel.new(hotel_params)
-  	@hotel.user_id = current_user.user_id
+  	#@hotel.user_id = current_user.user_id
   	if @hotel.save
+     # hotel_path @hotel
+
       flash[:success] = "Hotel created!"
-      redirect_to @hotel
+      render 'show'
     else 
       render 'new'
   	end
@@ -51,7 +53,7 @@ class HotelsController < ApplicationController
     end
 
   	def hotel_params
-  		params.require(:user).permit(:title, :stars_rating, :breakfast_included?, :room_description, :photo,
-  			:price_for_room, :country, :state, :city, :street, :user_id)
+  		params.require(:hotel).permit(:title, :stars_rating, :breakfast_included?, :room_description, :photo,
+  			:price_for_room, :country)#, #:state, :city, :street, :rating_hotel, :user_id)
   	end
 end

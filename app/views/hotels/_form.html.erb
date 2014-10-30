@@ -1,22 +1,28 @@
 
-	<% render 'shared/error_messages_hotel' %>
-	<%= f.label :title %>
-	<%= f.input  :title %>
+	<%= simple_form_for @hotel,  html: { multipart: true } do |f| %>
+    	<% render 'shared/error_messages_hotel' %>
+		
+		<%= f.input :title, label: 'Name hotel' %>
+		<%= f.input :stars_rating, collection: 1..5 %>
 
-	<%= f.label :stars_rating %>
-	<%= f.input :stars_rating, collection: 1..5, as: :radio_buttons %>
+	
+		<%= f.input :breakfast_included?, collection: ['Yes', 'No']%>
 
-	<%= f.label :breakfast_included?%>
-	<%= f.input :breakfast_included? %>
+	
+		<%= f.input :room_description, as: :text %>
 
-	<%= f.label :room_description %>
-	<%= f.input :room_description %>
+		<%= f.label 'Add a photo of a hotel'%>
+		
+		<%= f.input :photo, as: :file %>
+		<%= f.input :photo_cache, as: :hidden %>
 
-	<%= f.label :photo %>
-	<%= f.input :photo, as: :file, label: 'Add a photo of a hotel'%>
 
-	<%= f.label :price_for_room %>
-	<%= f.input :price_for_room, hint: "should be in $" %>
+		<%= f.input :price_for_room, as: :integer, promt: "should be in $" %>
+		<%= f.input :country, as: :country %>
+		
+		
+    	<%= f.button :submit, "Add new hotel", class: "btn btn-large btn-primary" %>
+    <% end %>
 	
 
 

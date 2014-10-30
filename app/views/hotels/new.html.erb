@@ -2,9 +2,9 @@
 <% provide(:title, 'Add new hotel') %>
 <div class="row">
   <div class="span6 offset3">
-  	<% simple_form_for @hotel, html: {multipart: true} do |f| %>
-    <%= render 'hotels/form', f: f  %>
-    <%= f.submit "Add new hotel", class: "btn btn-large btn-primary" %>
-    <% end %>
+
+  <h1> Add new hotel </h1>
+
+    <%= render 'form' %>
   </div>
 </div>
