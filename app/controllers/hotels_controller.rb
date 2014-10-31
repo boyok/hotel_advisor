@@ -24,11 +24,12 @@ class HotelsController < ApplicationController
     @address = @hotel.build_address(address_params)
    # 
   	#@hotel.user_id = current_user.user_id
-  	if @hotel.save #&& @address.save
+  	if @hotel.save && @address.save
+
       flash[:success] = "Hotel created!"
-      redirect_to @hotel
+      redirect_to hotels_path
     else 
-      new_hotel_path
+      redirect_to new_hotel_path
     end
     #end
   end

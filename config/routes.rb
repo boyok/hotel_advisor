@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :hotels, only: [:create, :show]
+  resources :hotels, only: [:create, :show, :new, :destroy]
   resources :hotels do
     resources :comments
   end

@@ -7,14 +7,14 @@ class Hotel < ActiveRecord::Base
 	validates :stars_rating,  presence: true, numericality: { only_integer: true, 
 					greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 	
-	validates :rating_hotel, presence: true, numericality: { only_integer: true, 
-					greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+	#validates :rating_hotel, presence: true, numericality: { only_integer: true, 
+	#				greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 	
 	has_one :address
 	has_many :comments, as: :commentable
 	before_save { self.title = title.strip }
 	#validates :user_id, presence: true
-	#validates :room_description, length: { maximum: 500 }
+	validates :room_description, length: { maximum: 500 }
 	#validates :state, length: { maximum: 30 }
 	#validates :country, length: { maximum: 30 }
 #	validates :city, length: { maximum: 30 }
