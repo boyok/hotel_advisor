@@ -1,36 +1,28 @@
 <% provide(:title, @hotel.title) %>
-<div class="row">
+  <div class="row">
   	<aside class="span4">
    		<section>
-   			<h1> Hotel title  <%= @hotel.title %> </h1>
+      <%= render 'show_hotel' %>
       </section>
-      <section>
-   			<h1> Stars rating <%= @hotel.stars_rating %> </h1>
-      </section>
-      <section>
-   			<h1> Breakfast included <%= @hotel.breakfast_included %> </h1>
-        </section>
-        <section><h1> Room description <%= @hotel.room_description %> </h1></section>
-   			
-   			<section> <%= image_tag @hotel.photo_url(:thumb).to_s  %> </section>
-   			<section><h1> Price for room per day in $ <%= @hotel.price_for_room %> </h1>
-   		
-   		</section>
+   		<section> <%= image_tag @hotel.photo_url(:thumb).to_s  %> </section>
   	</aside>
-	<div class="span8">
-		<ol class="microposts">
-    <h1> Comments </h1>
-     <%= @comments.each do |comment| %>
-     <li> <%= comment.text_comment %> </li>
-     <% end %>
-		</ol>
-	</div>
-  <div class="span8"> 
-    <h2> New Comment </h2>
-    <%= simple_form_for [@commentable, Comment.new] do |f| %>
-      <%= f.input :text_comment, as: :texet_area, placeholder: 'Comment here!' %>
-      <%= f.button :submit, "Add comment", class: "btn btn-large btn-primary" %>
-    <%end%>
+  </div>
+  <div class="span8">
+    <ol class="microposts">
+    <%= render 'comments/comment' %>
+    </ol>
   </div>
 
-</div>
+  <div class="span8"> 
+    <h2> New Comment </h2>
+    <%= simple_form_for [@hotel, @hotel.comments.build], html: { multipart: true } do |f| %>
+   
+      <%= f.input :text_comment, as: :text, placeholder: 'Comment here!', input_html: {cols: 100, rows: 6}%>
+      <%= f.input :hotel_rating, collection: 1..5, include_blank: false, label: "Your rating" %>
+     
+      <%= f.button :submit, "Add comment", class: "btn btn-large btn-primary" %>
+ 
+    <% end %>
+  </div>
+
+

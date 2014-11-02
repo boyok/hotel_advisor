@@ -1,0 +1,35 @@
+<h3> Hotel title:  <%= @hotel.title %> </h3>
+
+<h3> Stars rating:  
+  <% @hotel.stars_rating.times do %>  
+    <%= image_tag("yellow_star.png") %>
+  <% end %>
+</h3> 
+
+<% if  @hotel.breakfast_included == true %>
+  <h3> Breakfast included </h3>
+<% else%>
+  <h3> Breakfast not included  </h3>
+<% end %>
+
+<h3> Room description: 
+  <h4> <%= @hotel.room_description %></h4> 
+</h3>
+
+<h3> Price for room per day <%= @hotel.price_for_room %> $ </h3>
+
+<h3> Address: 
+  <%= "#{@hotel.address.country}, " unless @hotel.address.country.nil? || @hotel.address.country.empty? %> 
+  <%= "#{@hotel.address.state}, " unless @hotel.address.state.nil? || @hotel.address.state.empty? %> 
+  <%= "#{@hotel.address.city}, " unless @hotel.address.city.nil? || @hotel.address.city.empty? %> 
+  <%= "#{@hotel.address.street}. " unless @hotel.address.street.nil? || @hotel.address.street.empty?%>
+</h3>
+
+<h3> Hotel ratings by our users:  
+  <% unless  @hotel.comments == nil %>
+    <% (rating_hotel_by_user/100).times do %>  
+      <%= image_tag("yellow_star.png") %>
+    <% end %>
+    <%= (rating_hotel_by_user/100).to_s + "," + (rating_hotel_by_user%100).to_s + "  (" + pluralize(@hotel.comments.count, " user") + ")" %>
+  <%end %>
+</h3>

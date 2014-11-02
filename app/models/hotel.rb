@@ -7,11 +7,13 @@ class Hotel < ActiveRecord::Base
 	validates :stars_rating,  presence: true, numericality: { only_integer: true, 
 					greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 	
-	#validates :rating_hotel, presence: true, numericality: { only_integer: true, 
+	#validates :hotel_rating, presence: true, numericality: { only_integer: true, 
 	#				greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
-	
-	has_one :address
-	has_many :comments, as: :commentable
+	delegate :name, to: :user, prefix: true
+	has_one :address, dependent: :destroy
+	has_many :comments, dependent: :destroy
+	has_one :ratings, foreign_key: "hotel_id", dependent: :destroy
+	has_one :rating_hotel_by_users, through: :ratings #, source: :followed
 	before_save { self.title = title.strip }
 	#validates :user_id, presence: true
 	validates :room_description, length: { maximum: 500 }
@@ -19,9 +21,15 @@ class Hotel < ActiveRecord::Base
 	#validates :country, length: { maximum: 30 }
 #	validates :city, length: { maximum: 30 }
 #	validates :street, length: { maximum: 30 }
-#	validates :rating_hotel, presence: true
+
+	def rating?(comment_hotel)
+		ratings.find_by(hotel_id: rating_by_user)
+	end
+
+	def rating!(comment_hotel)
+		ratings.find_by(hotel_id: rating_by_user)
+	end
+
+
 	
-#	def rating_hotel
-#		self.rating_hotel = (rating_hotel + rating_hotel_user)/ count_users
-#	end
 end

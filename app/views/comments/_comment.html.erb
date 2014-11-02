@@ -1,0 +1,10 @@
+<h1> Comments </h1>
+<% if @hotel.comments.any? %>
+    <% @hotel.comments.each do |comment| %>
+	    <section>
+    	    <% unless comment.text_comment.empty? %>
+        	    <li> <%= "#{comment.user.name}:    #{comment.text_comment}" %> </li>
+          	<% end %>
+        </section>
+    <% end %>
+<% end %>

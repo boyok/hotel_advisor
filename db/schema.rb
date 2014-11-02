@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030151546) do
+ActiveRecord::Schema.define(version: 20141102210656) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -28,23 +28,30 @@ ActiveRecord::Schema.define(version: 20141030151546) do
     t.integer  "hotel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "commentable_type"
+    t.integer  "hotel_rating"
+    t.integer  "user_id"
   end
 
   create_table "hotels", force: true do |t|
     t.string   "title"
     t.integer  "stars_rating"
-    t.string   "breakfast_included"
+    t.boolean  "breakfast_included"
     t.string   "room_description"
     t.string   "photo"
     t.integer  "price_for_room"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "rating_hotel"
     t.integer  "user_id"
   end
 
   add_index "hotels", ["user_id", "created_at"], name: "index_hotels_on_user_id_and_created_at"
+
+  create_table "ratings", force: true do |t|
+    t.integer  "hotel_id"
+    t.integer  "rating_hotel_by_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
