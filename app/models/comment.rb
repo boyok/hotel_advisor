@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-	#has_many :ratings
+	
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
 	belongs_to :hotel

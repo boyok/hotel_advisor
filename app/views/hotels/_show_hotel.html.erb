@@ -1,4 +1,4 @@
-<h3> Hotel title:  <%= @hotel.title %> </h3>
+<h3> <%= "Hotel title: #{@hotel.title}" %> </h3>
 
 <h3> Stars rating:  
   <% @hotel.stars_rating.times do %>  
@@ -16,7 +16,7 @@
   <h4> <%= @hotel.room_description %></h4> 
 </h3>
 
-<h3> Price for room per day <%= @hotel.price_for_room %> $ </h3>
+<h3> <%= "Price for room per day $#{@hotel.price_for_room}" %> </h3>
 
 <h3> Address: 
   <%= "#{@hotel.address.country}, " unless @hotel.address.country.nil? || @hotel.address.country.empty? %> 

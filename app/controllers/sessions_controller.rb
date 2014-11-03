@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-	def new
+	
+  def new
     redirect_to(root_url) unless current_user?(@user)
   end
 
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_back_or user
     else
-    	flash.now[:error] = 'Invalid email/password combination' 
+    	flash.now[:error] = 'Error' 
      	render 'new'
     end
   end

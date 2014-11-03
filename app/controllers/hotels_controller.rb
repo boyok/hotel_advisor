@@ -22,8 +22,8 @@ class HotelsController < ApplicationController
   	if @hotel.save && @address.save
       flash[:success] = "Hotel created!"
       redirect_to @hotel
-    else 
-      flash[:success] = "Error!"
+    else
+      flash.now[:error] = 'Invalid title/stars rating'
       redirect_to new_hotel_path
     end
   end

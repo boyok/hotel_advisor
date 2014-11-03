@@ -5,18 +5,13 @@
 		<%= f.input :title, label: "Title hotel" %>
 		<%= f.input :stars_rating, collection: 1..5, include_blank: false %>
 
-	
 		<%= f.input :breakfast_included, as: :checkboxes, as: :boolean %>
-
 	
 		<%= f.input :room_description, as: :text %>
 
 		<%= f.label 'Add a photo of a hotel'%>
 		<%= image_tag @hotel.photo_url if @hotel.photo? %>
 		<%= f.input :photo, as: :file%>
-	
-		
-
 
 		<%= f.input :price_for_room, as: :integer, hint: "should be in $" %>
 		<%= simple_fields_for @address do |a| %>
@@ -25,8 +20,6 @@
 			<%= a.input :city %>
 			<%= a.input :street %>
 		<% end %>
-		
-		
 		
     	<%= f.button :submit, "Add new hotel", class: "btn btn-large btn-primary" %>
     <% end %>
