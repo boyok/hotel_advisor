@@ -1,16 +1,12 @@
 <% provide(:title, '') %>
 <div class="center hero-unit">
-	<h1>Hotel Advisor</h1>
-	<h2>
-		This page is start page my app.	
-	</h2>
 	<% unless signed_in? %>
 		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 	<% end %>
 </div>
 <div class="row">
   	<aside class="span4">
-  	<h1> Top 5 hotels </h1>
+  		<h1> Top 5 hotels </h1>
    		<section>
 		<% hotels_ids_in_top.each do |k|%>
 			<% @hotel = Hotel.find(k) %>

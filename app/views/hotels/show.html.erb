@@ -4,7 +4,7 @@
    		<section>
       <%= render 'show_hotel' %>
       </section>
-   		<section> <%= image_tag @hotel.photo_url(:thumb).to_s  %> </section>
+   		<section> <%= image_tag @hotel.photo_url if @hotel.photo?  %> </section>
   	</aside>
   </div>
   <div class="span8">
@@ -15,14 +15,7 @@
 
   <div class="span8"> 
     <h3> New Comment: </h3>
-    <%= simple_form_for [@hotel, @hotel.comments.build], html: { multipart: true } do |f| %>
-   
-      <%= f.input :text_comment, as: :text, placeholder: 'Comment here!', input_html: {cols: 100, rows: 6}%>
-      <%= f.input :hotel_rating, collection: 1..5, include_blank: false, label: "Your rating" %>
-     
-      <%= f.button :submit, "Add comment", class: "btn btn-large btn-primary" %>
- 
-    <% end %>
+    <%= render 'comments/new_comment' %>
   </div>
 
 

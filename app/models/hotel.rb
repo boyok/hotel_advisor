@@ -1,6 +1,7 @@
 class Hotel < ActiveRecord::Base
 	belongs_to :user
-	mount_uploader :photo, HotelPhotoUploader
+	mount_uploader :photo, PhotoUploader
+	#draconfly_accessor :image
 	#default_scope -> { order('created_at DESC') }
 	validates :title, presence: true, length: { maximum: 40 }
 	validates_uniqueness_of :title, case_sensitive: false
@@ -26,17 +27,17 @@ class Hotel < ActiveRecord::Base
 		self.comments.average('hotel_rating').to_f*100
 	end
 
-	def self.top_hotels
-		sql = 'SELECT hotels.* FROM hotels
-				INNER JOIN comments
-				ON hotels.id = comments.hotel_id
-				WHERE hotels.status = \'a\'
-				GROUP BY comments.hotel_id
-				ORDER BY AVG(comments.rate) DESC,
-				COUNT(comments.hotel_id) DESC
-				LIMIT 5'
-		hotels = Hotel.find_by_sql(sql)
-	end
+#	def self.top_hotels
+#		sql = 'SELECT hotels.* FROM hotels
+#				INNER JOIN comments
+#				ON hotels.id = comments.hotel_id
+#				WHERE hotels.status = \'a\'
+#				GROUP BY comments.hotel_id
+#				ORDER BY AVG(comments.rate) DESC,
+#				COUNT(comments.hotel_id) DESC
+#				LIMIT 5'
+#		hotels = Hotel.find_by_sql(sql)
+#	end
 
 	
 end

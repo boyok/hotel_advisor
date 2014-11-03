@@ -12,9 +12,10 @@
 		<%= f.input :room_description, as: :text %>
 
 		<%= f.label 'Add a photo of a hotel'%>
-		<%= image_tag(@hotel.photo_url) if @hotel.photo? %>
+		<%= image_tag @hotel.photo_url if @hotel.photo? %>
 		<%= f.input :photo, as: :file%>
-		<%= f.input :photo_cache, as: :hidden %>
+	
+		
 
 
 		<%= f.input :price_for_room, as: :integer, hint: "should be in $" %>

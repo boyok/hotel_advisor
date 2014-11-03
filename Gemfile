@@ -13,7 +13,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form'
 gem 'country_select'
-
+gem 'dragonfly'
 #gem 'ajaxful_rating' #stars rating
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
@@ -22,6 +22,7 @@ group :development  do
 	#gem 'rspec-its'
  	gem 'spork-rails', '4.0.0'
 	gem 'childprocess'
+	gem 'sqlite3'
   	
 end
 
@@ -33,8 +34,15 @@ group :test do
 	gem 'libnotify', '0.8.0'
 	gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
+
+
+group :prodaction do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

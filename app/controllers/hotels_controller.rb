@@ -1,6 +1,5 @@
 class HotelsController < ApplicationController
 
-  #before_action :correct_hotel, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:index, :show, :create, :update, :edit, :count_comments]
 
   def new
@@ -20,8 +19,6 @@ class HotelsController < ApplicationController
   def create 
   	@hotel = Hotel.new(hotel_params)
     @address = @hotel.build_address(address_params)
-   
-  
   	if @hotel.save && @address.save
       flash[:success] = "Hotel created!"
       redirect_to @hotel
@@ -29,7 +26,6 @@ class HotelsController < ApplicationController
       flash[:success] = "Error!"
       redirect_to new_hotel_path
     end
-    #end
   end
 
 
@@ -50,15 +46,8 @@ class HotelsController < ApplicationController
     redirect_to hotels_url
   end
 
-  
-
   private
 
-
-    #def correct_hotel
-   #   @hotel = Hotel.find(params[:id])      
-    #end
-#
   	def hotel_params
   		params.require(:hotel).permit(:title, :stars_rating, :breakfast_included, :room_description, :photo,
   			:price_for_room, :hotel_rating_by_user) 
