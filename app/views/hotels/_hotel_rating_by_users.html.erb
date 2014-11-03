@@ -1,0 +1,6 @@
+  <% unless  f.comments == nil %>
+    <% (f.rating_hotel_by_users.to_i/100).times do %>  
+      <%= image_tag("yellow_star.png") %>
+    <% end %>
+    <%= (f.rating_hotel_by_users/100).to_i.to_s + "," + (f.rating_hotel_by_users%100).to_i.to_s + "  (" + pluralize(f.comments.count, " user") + ")" %>
+  <%end %>

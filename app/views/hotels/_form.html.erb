@@ -2,7 +2,7 @@
 	<%= simple_form_for @hotel,  html: { multipart: true } do |f| %>
     	<% render 'shared/error_messages_hotel', object: f.object %>
 		
-		<%= f.input :title, label: 'Name hotel' %>
+		<%= f.input :title, label: "Title hotel" %>
 		<%= f.input :stars_rating, collection: 1..5, include_blank: false %>
 
 	
@@ -12,7 +12,7 @@
 		<%= f.input :room_description, as: :text %>
 
 		<%= f.label 'Add a photo of a hotel'%>
-		
+		<%= image_tag(@hotel.photo_url) if @hotel.photo? %>
 		<%= f.input :photo, as: :file%>
 		<%= f.input :photo_cache, as: :hidden %>
 

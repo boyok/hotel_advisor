@@ -14,7 +14,7 @@
   </div>
 
   <div class="span8"> 
-    <h2> New Comment </h2>
+    <h3> New Comment: </h3>
     <%= simple_form_for [@hotel, @hotel.comments.build], html: { multipart: true } do |f| %>
    
       <%= f.input :text_comment, as: :text, placeholder: 'Comment here!', input_html: {cols: 100, rows: 6}%>

@@ -2,6 +2,8 @@
 <h1> All Hotels </h1>
 <%= will_paginate %>
 <ul class="hotels">
-	<%= render @hotels %>
+	<% @hotels.each do |f| %>
+		<%= render 'show_hotels', f: f %>
+	<% end %>
 <ul>
 <%= will_paginate %>

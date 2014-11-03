@@ -3,14 +3,13 @@ class CommentsController < ApplicationController
 	before_action :signed_in_user, only: [:create, :destroy] 
 	
 	def index 
-	#	@commentable = find_commentable
-	#	@comments = @commentable.comments
 		@hotels = Hotel.paginate(page: params[:page])
 	end 
 
 	def new
 		@comment = Comment.new
 	end
+	
 	def show
 		@comment = Comment.find(params[:hotel_id])
 	end
@@ -20,6 +19,7 @@ class CommentsController < ApplicationController
 		@hotel = Hotel.find(params[:hotel_id])
 		@comment = @hotel.comments.create(comment_params)#.merge({ hotel_id: @hotel.id, user_id: current_user.id})
 		@comment.user_id = current_user.id
+	#	@hotel.rating_hotel_by_user = @comment.rating_hotel_by_user 
 		if @comment.save
 			flash[:success] = "Comment add!"
 
@@ -29,14 +29,12 @@ class CommentsController < ApplicationController
 		end
 	end
 
-	def find_commentable
-		#params.each do |name, value|
-		#	$1.classify.constantize.find(value)	if name =~ /(.+)_id$/
-		#end
-	end
+	
 
 	def destroy
 	end
+
+
 
 	private 
 	

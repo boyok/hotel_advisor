@@ -22,14 +22,21 @@ class Hotel < ActiveRecord::Base
 #	validates :city, length: { maximum: 30 }
 #	validates :street, length: { maximum: 30 }
 
-	def rating?(comment_hotel)
-		ratings.find_by(hotel_id: rating_by_user)
+	def rating_hotel_by_users
+		self.comments.average('hotel_rating').to_f*100
 	end
 
-	def rating!(comment_hotel)
-		ratings.find_by(hotel_id: rating_by_user)
+	def self.top_hotels
+		sql = 'SELECT hotels.* FROM hotels
+				INNER JOIN comments
+				ON hotels.id = comments.hotel_id
+				WHERE hotels.status = \'a\'
+				GROUP BY comments.hotel_id
+				ORDER BY AVG(comments.rate) DESC,
+				COUNT(comments.hotel_id) DESC
+				LIMIT 5'
+		hotels = Hotel.find_by_sql(sql)
 	end
-
 
 	
 end

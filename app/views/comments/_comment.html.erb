@@ -3,8 +3,10 @@
     <% @hotel.comments.each do |comment| %>
 	    <section>
     	    <% unless comment.text_comment.empty? %>
-        	    <li> <%= "#{comment.user.name}:    #{comment.text_comment}" %> </li>
-          	<% end %>
+        	    <li> <%= "#{comment.user.name}:    #{comment.text_comment}" %></li>
+        	<% end %>
         </section>
     <% end %>
+<% else %>
+	<h2> No comments </h2>
 <% end %>

@@ -1,0 +1,17 @@
+<li>
+	<section>
+ 		<span>
+			<h3> Hotel title:  <%= link_to f.title, hotel_path(f)%>  </h3>
+		</span>
+		<span>
+			<h3> Stars rating:  
+  				<% f.stars_rating.times do %>  
+    				<%= image_tag("yellow_star.png") %>
+  				<% end %>
+			</h3>
+		</span> 
+		<h3> Hotel ratings by our users:  
+  			<%= render 'hotels/hotel_rating_by_users', f: f %>
+		</h3>
+	</section>
+</li>

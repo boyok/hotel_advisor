@@ -41,17 +41,11 @@ ActiveRecord::Schema.define(version: 20141102210656) do
     t.integer  "price_for_room"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rating_hotel_by_user"
     t.integer  "user_id"
   end
 
   add_index "hotels", ["user_id", "created_at"], name: "index_hotels_on_user_id_and_created_at"
-
-  create_table "ratings", force: true do |t|
-    t.integer  "hotel_id"
-    t.integer  "rating_hotel_by_user"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "name"

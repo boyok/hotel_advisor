@@ -8,5 +8,16 @@
 		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 	<% end %>
 </div>
+<div class="row">
+  	<aside class="span4">
+  	<h1> Top 5 hotels </h1>
+   		<section>
+		<% hotels_ids_in_top.each do |k|%>
+			<% @hotel = Hotel.find(k) %>
+			<%= render "hotels/show_hotels", f: @hotel %>
+		<% end %>
+		</section>
+	</aside>
+</div>
 
 

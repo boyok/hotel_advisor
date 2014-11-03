@@ -26,10 +26,5 @@
 </h3>
 
 <h3> Hotel ratings by our users:  
-  <% unless  @hotel.comments == nil %>
-    <% (rating_hotel_by_user/100).times do %>  
-      <%= image_tag("yellow_star.png") %>
-    <% end %>
-    <%= (rating_hotel_by_user/100).to_s + "," + (rating_hotel_by_user%100).to_s + "  (" + pluralize(@hotel.comments.count, " user") + ")" %>
-  <%end %>
+  <%= render 'hotel_rating_by_users', f: @hotel %>
 </h3>
