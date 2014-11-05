@@ -9,7 +9,6 @@ class Hotel < ActiveRecord::Base
 	delegate :name, to: :user, prefix: true
 	has_one :address, dependent: :destroy
 	has_many :comments, dependent: :destroy
-	has_one :ratings, foreign_key: "hotel_id", dependent: :destroy
 	has_one :rating_hotel_by_users, through: :ratings 
 	before_save { self.title = title.strip }
 	

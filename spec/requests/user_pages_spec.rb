@@ -70,6 +70,7 @@ describe "User pages" do
 
       it { should have_content('error') }
     end
+    
 
     describe "with valid information" do
       let(:new_name)  { "New Name" }

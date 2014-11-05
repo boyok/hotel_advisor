@@ -3,6 +3,9 @@
     <% @hotel.comments.each do |comment| %>
 	    <section>
     	    <% unless comment.text_comment.empty? %>
+    	     	<span class="timestamp">
+					Posted <%= time_ago_in_words(comment.created_at) %> ago.
+				</span>
         	    <li> <h4><%= "#{comment.user.name}:    #{comment.text_comment}" %></h4></li>
         	<% end %>
         </section>

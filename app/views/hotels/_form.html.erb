@@ -1,6 +1,6 @@
 
 	<%= simple_form_for @hotel,  html: { multipart: true } do |f| %>
-    	<% render 'shared/error_messages_hotel', object: f.object %>
+    	<% render 'shared/error_messages', object: @hotel %>
 		
 		<%= f.input :title, label: "Title hotel" %>
 		<%= f.input :stars_rating, collection: 1..5, include_blank: false %>

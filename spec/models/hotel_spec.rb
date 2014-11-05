@@ -3,8 +3,7 @@ require 'spec_helper'
 describe Hotel do
   let(:user) { FactoryGirl.create(:user) }
   before { @hotel = user.hotels.build(title: "Fan", stars_rating: 3, breakfast_included: true,
-  	room_description: "gghgc", photo: "Sory", price_for_room: 298)} # country: "Italy", state: "Catalonia",
-  	#city: "Catalona", street: "Romeo")}
+  	room_description: "gghgc", photo: "Sory", price_for_room: 298)} 
   subject { @hotel }
   it { should respond_to(:title) }
   it { should respond_to(:stars_rating) }
@@ -14,8 +13,6 @@ describe Hotel do
   it { should respond_to(:price_for_room) }
   it { should respond_to(:rating_hotel) }
   it { should respond_to(:user_id) }
-  #it { should respond_to(:user) }
-  #its(:user) { should eq user}
   it { should be_valid }
 
   describe "with blank title" do
@@ -37,7 +34,11 @@ describe Hotel do
     before { @hotel.room_description = "4"*501}
     it { should_not be_valid }
   end
-  
+
+  describe "stars rating = 6" do 
+    before { @hotel.stars_rating = 6 }
+    it { should_not be_valid }
+  end
 end
 
 

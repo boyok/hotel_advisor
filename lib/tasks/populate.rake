@@ -11,10 +11,7 @@ namespace :db do
 			hotel.breakfast_included = (1 == rand(2) ? true : false)
 			hotel.price_for_room = Faker::commerce.price
 			hotel.created_at = 4.years.ago..Time.now
-			hotel.address.street = Faker::Address.street_address
-			hotel.address.city = Faker::Address.city
-			hotel.address.state = Faker::Address.us_state_abbr
-			hotel.address.country = Faker::Address.country
+
 		end
 	end
 end
