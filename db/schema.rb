@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105083542) do
+ActiveRecord::Schema.define(version: 20141105093929) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141105083542) do
   create_table "hotels", force: true do |t|
     t.string   "title"
     t.integer  "stars_rating"
-    t.string   "breakfast_included"
+    t.boolean  "breakfast_included"
     t.string   "room_description"
     t.integer  "price_for_room"
     t.integer  "rating_hotel"

@@ -9,11 +9,12 @@ FactoryGirl.define do
   factory :hotel do
   	sequence(:title) { |name_hotel| "Hotel #{name_hotel}" }
   	stars_rating 			   4
-  	breackfast_included? 	true
+  	breackfast_included  true
   	room_description		"description"
   	photo					     "sorry"
   	price_for_room			200
   	country					  "France"
+    state             "hgjkk"
   	city					    "Paris"
   	street					  "De Brue"
   	user					    :user

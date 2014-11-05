@@ -11,7 +11,7 @@ module HotelsHelper
 		rating_hotels_and_hotels_ids = rating_hotels_and_hotels_ids.sort_by{|id, rating| rating}.reverse
 		count = 1
 		rating_hotels_and_hotels_ids.each do |id, rating|
-			break if count == 5
+			break if count == 6
 			cash_top_hotels.push(id)
 			count += 1
 		end
