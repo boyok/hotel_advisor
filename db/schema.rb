@@ -11,38 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102210656) do
+ActiveRecord::Schema.define(version: 20141105083542) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "hotel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "hotel_id"
   end
 
   create_table "comments", force: true do |t|
     t.text     "text_comment"
     t.integer  "hotel_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "hotel_rating"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "hotels", force: true do |t|
     t.string   "title"
     t.integer  "stars_rating"
-    t.boolean  "breakfast_included"
+    t.string   "breakfast_included"
     t.string   "room_description"
-    t.string   "photo"
     t.integer  "price_for_room"
+    t.integer  "rating_hotel"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "rating_hotel_by_user"
-    t.integer  "user_id"
+    t.string   "photo"
   end
 
   add_index "hotels", ["user_id", "created_at"], name: "index_hotels_on_user_id_and_created_at"

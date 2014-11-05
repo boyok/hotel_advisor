@@ -2,20 +2,16 @@ require 'spec_helper'
 
 describe Hotel do
   let(:user) { FactoryGirl.create(:user) }
-  before { @hotel = user.hotels.build(title: "Fan", stars_rating: 3, breakfast_included?: true,
-  	room_description: "gghgc", photo: "Sory", price_for_room: 298, country: "Italy", state: "Catalonia",
-  	city: "Catalona", street: "Romeo")}
+  before { @hotel = user.hotels.build(title: "Fan", stars_rating: 3, breakfast_included: true,
+  	room_description: "gghgc", photo: "Sory", price_for_room: 298)} # country: "Italy", state: "Catalonia",
+  	#city: "Catalona", street: "Romeo")}
   subject { @hotel }
   it { should respond_to(:title) }
   it { should respond_to(:stars_rating) }
-  it { should respond_to(:breakfast_included?) }
+  it { should respond_to(:breakfast_included) }
   it { should respond_to(:room_description) }
   it { should respond_to(:photo) }
   it { should respond_to(:price_for_room) }
-  it { should respond_to(:country) }
-  it { should respond_to(:state) }
-  it { should respond_to(:city) }
-  it { should respond_to(:street) }
   it { should respond_to(:rating_hotel) }
   it { should respond_to(:user_id) }
   #it { should respond_to(:user) }
