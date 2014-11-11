@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 gem 'bootstrap-sass'
@@ -14,31 +13,29 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'country_select'
 gem 'dragonfly'
-#gem 'ajaxful_rating' #stars rating
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'rubocop', require: false
+gem 'twitter-bootstrap-rails',
+  :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development  do
-	gem 'rspec-rails', '2.14.0.rc1'
-	#gem 'rspec-its'
- 	gem 'spork-rails', '4.0.0'
-	gem 'childprocess'
-	gem 'sqlite3'
-  	
+  gem 'rspec-rails', '2.14.0.rc1'
+  gem 'spork-rails', '4.0.0'
+  gem 'childprocess'
+  gem 'sqlite3'
 end
 
 group :test do
-	gem 'selenium-webdriver'
-	gem 'capybara', '2.1.0'
-	gem 'factory_girl_rails'
-	gem 'minitest'
-	gem 'libnotify', '0.8.0'
-	gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'capybara', '2.1.0'
+  gem 'factory_girl_rails'
+  gem 'minitest'
+  gem 'libnotify', '0.8.0'
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-
 group :prodaction do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use sqlite3 as the database for Active Record
@@ -61,7 +58,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+# Spring speeds up development by keeping your application running
+# in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
@@ -75,4 +73,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
