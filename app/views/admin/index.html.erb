@@ -1,0 +1,26 @@
+<h1>Admin pages</h1>
+
+<h3><%= link_to 'Create user', admin_create_user_path %></h3>
+
+<% if @users %>
+  <table style="widht:100%">
+  	<tr>
+  		<th>Name</th>
+  		<th>Email</th>
+  		<th>User's hotels</th>
+  		<th>User's reviews</th>
+  		<th>User's comments</th>
+  	</tr>
+    <% @users.each do |user| %>
+      <tr>
+        <th><%= link_to user.name, user %> </th>
+        <th><%= user.email %> </th>
+        <th></th>
+        <th> </th>
+        <th> </th>
+        <th> <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %></th>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

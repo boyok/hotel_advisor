@@ -1,13 +1,10 @@
 <%= render 'shared/error_messages', object: @user%>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= f.input :name, label: 'Name' %>
 
-<%= f.label :email %>
-<%= f.text_field :email %>
+<%= f.input :email, label: 'Email' %>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+<%= f.input :password %>
 
-<%= f.label :password_confirmation, "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
+<%= f.input :password_confirmation, label: 'Confirm Password' %>
+

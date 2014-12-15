@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'admin' => 'admin#index'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :hotels, only: [:create, :destroy]
   resources :hotels do
     resources :comments
   end
+
   resources :ratings, only: [:create, :destroy]
 
   root 'static_pages#home'
@@ -15,6 +18,8 @@ Rails.application.routes.draw do
   match '/new',     to: 'hotels#new',           via: 'get'
   match 'index',    to: 'hotels#index',         via: 'get'
   match '/show',    to: 'hotels#show',          via: 'get'
+  match '/admin/create_user', to: 'users#new', via: 'get'
+ # match '/admin/index', to: 'admin#index',      via: 'get'
 
   # The priority is based upon order of creation: first
   # created -> highest priority.

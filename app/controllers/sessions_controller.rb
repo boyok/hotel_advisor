@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     redirect_to(root_url) unless current_user?(@user)
+    #redirect_to(admin_url) unless admin_user?
   end
 
   def create

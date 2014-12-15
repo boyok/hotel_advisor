@@ -1,10 +1,18 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign Up</h1>
+<% if admin_user? %>
+	<% provide(:title, 'Create user') %>
+	<h1>Create user</h1>
+<% else %>
+	<% provide(:title, 'Sign up') %>
+	<h1>Sign Up</h1>
+<% end %>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= simple_form_for(@user) do |f| %>
       <%= render 'fields', f: f %>
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <% if admin_user? %>
+      	<%= render 'admin/admin', f: f %>
+      <% end %>
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
